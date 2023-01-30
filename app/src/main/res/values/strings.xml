@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TextSizeKotlin_month05</string>
+    <string name="decrease">-</string>
+    <string name="increase">+</string>
+    <string name="_6">6</string>
+    <string name="_0">0</string>
+    <string name="_0_0">0.0</string>
+</resources>
