@@ -13,21 +13,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initializeViewModel()
+        observer()
         initListeners()
     }
-    private fun initializeViewModel() {
-      //  viewModel = ViewModelProvider(this)[ViewModelText::class.java]
-    }
-    private fun initListeners() {
+
+    private fun observer() {
         viewModel.count.observe(this) { count ->
             binding.tv.text = count.toString()
         }
+        viewModel.snackBar.observe(this){snack ->
+            binding.btnIncrease.showSnackBar(snack.toString())
+            binding.btnDecrease.showSnackBar(snack.toString())
+        }
+    }
+
+    private fun initListeners() {
         binding.btnIncrease.setOnClickListener {
-            viewModel.increase(it)
+            viewModel.increase()
         }
         binding.btnDecrease.setOnClickListener {
-            viewModel.decrease(it)
+            viewModel.decrease()
         }
     }
 }
